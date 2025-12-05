@@ -9,7 +9,70 @@
 * 🟢 You can import this file directly.
 */
 
+export const UserRole = {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+} as const
+
+export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const TravelType = {
+  SOLO: 'SOLO',
+  FAMILY: 'FAMILY',
+  FRIENDS: 'FRIENDS'
+} as const
+
+export type TravelType = (typeof TravelType)[keyof typeof TravelType]
+
+
+export const TravelInterest = {
+  ADVENTURE: 'ADVENTURE',
+  HIKING: 'HIKING',
+  FOOD_TOURS: 'FOOD_TOURS',
+  PHOTOGRAPHY: 'PHOTOGRAPHY',
+  BEACHES: 'BEACHES',
+  CITY_EXPLORATION: 'CITY_EXPLORATION',
+  HISTORY: 'HISTORY',
+  ART_CULTURE: 'ART_CULTURE',
+  WILDLIFE: 'WILDLIFE',
+  NIGHTLIFE: 'NIGHTLIFE'
+} as const
+
+export type TravelInterest = (typeof TravelInterest)[keyof typeof TravelInterest]
+
+
+export const Country = {
+  USA: 'USA',
+  CANADA: 'CANADA',
+  UNITED_KINGDOM: 'UNITED_KINGDOM',
+  FRANCE: 'FRANCE',
+  ITALY: 'ITALY',
+  SPAIN: 'SPAIN',
+  GERMANY: 'GERMANY',
+  NETHERLANDS: 'NETHERLANDS',
+  SWITZERLAND: 'SWITZERLAND',
+  AUSTRALIA: 'AUSTRALIA',
+  NEW_ZEALAND: 'NEW_ZEALAND',
+  JAPAN: 'JAPAN',
+  SOUTH_KOREA: 'SOUTH_KOREA',
+  THAILAND: 'THAILAND',
+  SINGAPORE: 'SINGAPORE',
+  MALAYSIA: 'MALAYSIA',
+  UAE: 'UAE',
+  TURKEY: 'TURKEY',
+  INDONESIA: 'INDONESIA',
+  MALDIVES: 'MALDIVES',
+  INDIA: 'INDIA',
+  CHINA: 'CHINA',
+  VIETNAM: 'VIETNAM',
+  PHILIPPINES: 'PHILIPPINES',
+  EGYPT: 'EGYPT',
+  BRAZIL: 'BRAZIL',
+  SOUTH_AFRICA: 'SOUTH_AFRICA',
+  MEXICO: 'MEXICO',
+  PORTUGAL: 'PORTUGAL',
+  GREECE: 'GREECE'
+} as const
+
+export type Country = (typeof Country)[keyof typeof Country]

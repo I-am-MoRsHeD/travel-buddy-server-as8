@@ -72,7 +72,17 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const UserScalarFieldEnum = {
   id: 'id',
-  fullName: 'fullName'
+  fullName: 'fullName',
+  email: 'email',
+  password: 'password',
+  profilePhoto: 'profilePhoto',
+  role: 'role',
+  bio: 'bio',
+  travelInterests: 'travelInterests',
+  visitedCountries: 'visitedCountries',
+  currentLocation: 'currentLocation',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -92,4 +102,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

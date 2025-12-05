@@ -1,0 +1,56 @@
+enum UserRole {
+    USER
+    ADMIN
+}
+
+enum TravelType {
+    SOLO
+    FAMILY
+    FRIENDS
+}
+
+enum TravelInterest {
+    ADVENTURE
+    HIKING
+    FOOD_TOURS
+    PHOTOGRAPHY
+    BEACHES
+    CITY_EXPLORATION
+    HISTORY
+    ART_CULTURE
+    WILDLIFE
+    NIGHTLIFE
+}
+
+enum Country {
+    USA
+    CANADA
+    UNITED_KINGDOM
+    FRANCE
+    ITALY
+    SPAIN
+    GERMANY
+    NETHERLANDS
+    SWITZERLAND
+    AUSTRALIA
+    NEW_ZEALAND
+    JAPAN
+    SOUTH_KOREA
+    THAILAND
+    SINGAPORE
+    MALAYSIA
+    UAE
+    TURKEY
+    INDONESIA
+    MALDIVES
+    INDIA
+    CHINA
+    VIETNAM
+    PHILIPPINES
+    EGYPT
+    BRAZIL
+    SOUTH_AFRICA
+    MEXICO
+    PORTUGAL
+    GREECE
+}

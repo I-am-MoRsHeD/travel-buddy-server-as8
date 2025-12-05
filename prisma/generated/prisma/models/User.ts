@@ -27,16 +27,42 @@ export type AggregateUser = {
 export type UserMinAggregateOutputType = {
   id: string | null
   fullName: string | null
+  email: string | null
+  password: string | null
+  profilePhoto: string | null
+  role: $Enums.UserRole | null
+  bio: string | null
+  currentLocation: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserMaxAggregateOutputType = {
   id: string | null
   fullName: string | null
+  email: string | null
+  password: string | null
+  profilePhoto: string | null
+  role: $Enums.UserRole | null
+  bio: string | null
+  currentLocation: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type UserCountAggregateOutputType = {
   id: number
   fullName: number
+  email: number
+  password: number
+  profilePhoto: number
+  role: number
+  bio: number
+  travelInterests: number
+  visitedCountries: number
+  currentLocation: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -44,16 +70,42 @@ export type UserCountAggregateOutputType = {
 export type UserMinAggregateInputType = {
   id?: true
   fullName?: true
+  email?: true
+  password?: true
+  profilePhoto?: true
+  role?: true
+  bio?: true
+  currentLocation?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserMaxAggregateInputType = {
   id?: true
   fullName?: true
+  email?: true
+  password?: true
+  profilePhoto?: true
+  role?: true
+  bio?: true
+  currentLocation?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type UserCountAggregateInputType = {
   id?: true
   fullName?: true
+  email?: true
+  password?: true
+  profilePhoto?: true
+  role?: true
+  bio?: true
+  travelInterests?: true
+  visitedCountries?: true
+  currentLocation?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -132,6 +184,16 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UserGroupByOutputType = {
   id: string
   fullName: string
+  email: string
+  password: string
+  profilePhoto: string | null
+  role: $Enums.UserRole
+  bio: string | null
+  travelInterests: $Enums.TravelInterest[]
+  visitedCountries: $Enums.Country[]
+  currentLocation: string | null
+  createdAt: Date
+  updatedAt: Date
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -158,24 +220,64 @@ export type UserWhereInput = {
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
   fullName?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringFilter<"User"> | string
+  password?: Prisma.StringFilter<"User"> | string
+  profilePhoto?: Prisma.StringNullableFilter<"User"> | string | null
+  role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
+  bio?: Prisma.StringNullableFilter<"User"> | string | null
+  travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
+  visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
+  currentLocation?: Prisma.StringNullableFilter<"User"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
 }
 
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
+  role?: Prisma.SortOrder
+  bio?: Prisma.SortOrderInput | Prisma.SortOrder
+  travelInterests?: Prisma.SortOrder
+  visitedCountries?: Prisma.SortOrder
+  currentLocation?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  email?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   fullName?: Prisma.StringFilter<"User"> | string
-}, "id">
+  password?: Prisma.StringFilter<"User"> | string
+  profilePhoto?: Prisma.StringNullableFilter<"User"> | string | null
+  role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
+  bio?: Prisma.StringNullableFilter<"User"> | string | null
+  travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
+  visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
+  currentLocation?: Prisma.StringNullableFilter<"User"> | string | null
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+}, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
+  role?: Prisma.SortOrder
+  bio?: Prisma.SortOrderInput | Prisma.SortOrder
+  travelInterests?: Prisma.SortOrder
+  visitedCountries?: Prisma.SortOrder
+  currentLocation?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -187,60 +289,212 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   fullName?: Prisma.StringWithAggregatesFilter<"User"> | string
+  email?: Prisma.StringWithAggregatesFilter<"User"> | string
+  password?: Prisma.StringWithAggregatesFilter<"User"> | string
+  profilePhoto?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  role?: Prisma.EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
+  bio?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
+  visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
+  currentLocation?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
 export type UserCreateInput = {
   id?: string
   fullName: string
+  email: string
+  password: string
+  profilePhoto?: string | null
+  role?: $Enums.UserRole
+  bio?: string | null
+  travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUncheckedCreateInput = {
   id?: string
   fullName: string
+  email: string
+  password: string
+  profilePhoto?: string | null
+  role?: $Enums.UserRole
+  bio?: string | null
+  travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserCreateManyInput = {
   id?: string
   fullName: string
+  email: string
+  password: string
+  profilePhoto?: string | null
+  role?: $Enums.UserRole
+  bio?: string | null
+  travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
+  visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
+  currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EnumTravelInterestNullableListFilter<$PrismaModel = never> = {
+  equals?: $Enums.TravelInterest[] | Prisma.ListEnumTravelInterestFieldRefInput<$PrismaModel> | null
+  has?: $Enums.TravelInterest | Prisma.EnumTravelInterestFieldRefInput<$PrismaModel> | null
+  hasEvery?: $Enums.TravelInterest[] | Prisma.ListEnumTravelInterestFieldRefInput<$PrismaModel>
+  hasSome?: $Enums.TravelInterest[] | Prisma.ListEnumTravelInterestFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
+export type EnumCountryNullableListFilter<$PrismaModel = never> = {
+  equals?: $Enums.Country[] | Prisma.ListEnumCountryFieldRefInput<$PrismaModel> | null
+  has?: $Enums.Country | Prisma.EnumCountryFieldRefInput<$PrismaModel> | null
+  hasEvery?: $Enums.Country[] | Prisma.ListEnumCountryFieldRefInput<$PrismaModel>
+  hasSome?: $Enums.Country[] | Prisma.ListEnumCountryFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
 }
 
 export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  profilePhoto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
+  bio?: Prisma.SortOrder
+  travelInterests?: Prisma.SortOrder
+  visitedCountries?: Prisma.SortOrder
+  currentLocation?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  profilePhoto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
+  bio?: Prisma.SortOrder
+  currentLocation?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
+  email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
+  profilePhoto?: Prisma.SortOrder
+  role?: Prisma.SortOrder
+  bio?: Prisma.SortOrder
+  currentLocation?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+}
+
+export type UserCreatetravelInterestsInput = {
+  set: $Enums.TravelInterest[]
+}
+
+export type UserCreatevisitedCountriesInput = {
+  set: $Enums.Country[]
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
+export type EnumUserRoleFieldUpdateOperationsInput = {
+  set?: $Enums.UserRole
+}
+
+export type UserUpdatetravelInterestsInput = {
+  set?: $Enums.TravelInterest[]
+  push?: $Enums.TravelInterest | $Enums.TravelInterest[]
+}
+
+export type UserUpdatevisitedCountriesInput = {
+  set?: $Enums.Country[]
+  push?: $Enums.Country | $Enums.Country[]
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 
@@ -248,24 +502,64 @@ export type StringFieldUpdateOperationsInput = {
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   fullName?: boolean
+  email?: boolean
+  password?: boolean
+  profilePhoto?: boolean
+  role?: boolean
+  bio?: boolean
+  travelInterests?: boolean
+  visitedCountries?: boolean
+  currentLocation?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   fullName?: boolean
+  email?: boolean
+  password?: boolean
+  profilePhoto?: boolean
+  role?: boolean
+  bio?: boolean
+  travelInterests?: boolean
+  visitedCountries?: boolean
+  currentLocation?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   fullName?: boolean
+  email?: boolean
+  password?: boolean
+  profilePhoto?: boolean
+  role?: boolean
+  bio?: boolean
+  travelInterests?: boolean
+  visitedCountries?: boolean
+  currentLocation?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
   id?: boolean
   fullName?: boolean
+  email?: boolean
+  password?: boolean
+  profilePhoto?: boolean
+  role?: boolean
+  bio?: boolean
+  travelInterests?: boolean
+  visitedCountries?: boolean
+  currentLocation?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "email" | "password" | "profilePhoto" | "role" | "bio" | "travelInterests" | "visitedCountries" | "currentLocation" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
@@ -273,6 +567,16 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     fullName: string
+    email: string
+    password: string
+    profilePhoto: string | null
+    role: $Enums.UserRole
+    bio: string | null
+    travelInterests: $Enums.TravelInterest[]
+    visitedCountries: $Enums.Country[]
+    currentLocation: string | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -698,6 +1002,16 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
 export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'String'>
   readonly fullName: Prisma.FieldRef<"User", 'String'>
+  readonly email: Prisma.FieldRef<"User", 'String'>
+  readonly password: Prisma.FieldRef<"User", 'String'>
+  readonly profilePhoto: Prisma.FieldRef<"User", 'String'>
+  readonly role: Prisma.FieldRef<"User", 'UserRole'>
+  readonly bio: Prisma.FieldRef<"User", 'String'>
+  readonly travelInterests: Prisma.FieldRef<"User", 'TravelInterest[]'>
+  readonly visitedCountries: Prisma.FieldRef<"User", 'Country[]'>
+  readonly currentLocation: Prisma.FieldRef<"User", 'String'>
+  readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
     
 
