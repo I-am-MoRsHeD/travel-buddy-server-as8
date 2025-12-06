@@ -51,6 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
+  Review: 'Review',
+  TravelPlan: 'TravelPlan',
   User: 'User'
 } as const
 
@@ -70,6 +72,37 @@ export const TransactionIsolationLevel = {
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const ReviewScalarFieldEnum = {
+  id: 'id',
+  reviewTo: 'reviewTo',
+  reviewFrom: 'reviewFrom',
+  travel_id: 'travel_id',
+  rating: 'rating',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const TravelPlanScalarFieldEnum = {
+  id: 'id',
+  destination: 'destination',
+  creator_id: 'creator_id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  budgetRange: 'budgetRange',
+  travelType: 'travelType',
+  description: 'description',
+  interestedMembers: 'interestedMembers',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TravelPlanScalarFieldEnum = (typeof TravelPlanScalarFieldEnum)[keyof typeof TravelPlanScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   fullName: 'fullName',
@@ -77,6 +110,8 @@ export const UserScalarFieldEnum = {
   password: 'password',
   profilePhoto: 'profilePhoto',
   role: 'role',
+  avgRating: 'avgRating',
+  isPremiumTaken: 'isPremiumTaken',
   bio: 'bio',
   travelInterests: 'travelInterests',
   visitedCountries: 'visitedCountries',

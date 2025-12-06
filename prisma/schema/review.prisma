@@ -1,0 +1,13 @@
+model Review {
+    id          String   @id @default(uuid())
+    reviewTo    String
+    reviewFrom  String
+    travel_id   String
+    rating      Int
+    description String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    reviewReceiver User @relation("reviewsReceived",fields: [reviewTo], references: [id])
+    reviewSender User @relation("reviewsSender",fields: [reviewFrom], references: [id])
+}

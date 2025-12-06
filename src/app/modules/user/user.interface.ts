@@ -9,6 +9,8 @@ export interface IUserCreateInput {
     password: string;
     profilePhoto?: string | null;
     role?: UserRole;
+    avgRating?: number;
+    isPremiumTaken?: boolean;
     bio?: string | null;
     travelInterests?: TravelInterest[];
     visitedCountries?: Country[];

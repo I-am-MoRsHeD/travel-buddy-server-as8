@@ -5,7 +5,6 @@ import type { IUserCreateInput } from "./user.interface";
 import bcrypt from 'bcryptjs';
 
 
-
 const register = async (payload: IUserCreateInput) => {
     const isUserExist = await prisma.user.findUnique({
         where: {
@@ -28,6 +27,8 @@ const register = async (payload: IUserCreateInput) => {
     return result;
 
 };
+
+const getUsers = async() =>{};
 
 export const UserService = {
     register

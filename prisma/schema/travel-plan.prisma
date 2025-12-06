@@ -1,0 +1,14 @@
+model TravelPlan {
+    id                String     @id @default(uuid())
+    destination       Country
+    creator_id        String
+    startDate         DateTime
+    endDate           DateTime
+    budgetRange       String
+    travelType        TravelType
+    description       String
+    interestedMembers String[]
+    creator           User       @relation(fields: [creator_id], references: [id])
+    createdAt         DateTime   @default(now())
+    updatedAt         DateTime   @updatedAt
+}

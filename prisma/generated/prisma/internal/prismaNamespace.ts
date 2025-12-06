@@ -384,6 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Review: 'Review',
+  TravelPlan: 'TravelPlan',
   User: 'User'
 } as const
 
@@ -400,10 +402,158 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user"
+    modelProps: "review" | "travelPlan" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Review: {
+      payload: Prisma.$ReviewPayload<ExtArgs>
+      fields: Prisma.ReviewFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReviewFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReviewFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        findFirst: {
+          args: Prisma.ReviewFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReviewFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        findMany: {
+          args: Prisma.ReviewFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        create: {
+          args: Prisma.ReviewCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        createMany: {
+          args: Prisma.ReviewCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ReviewCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        delete: {
+          args: Prisma.ReviewDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        update: {
+          args: Prisma.ReviewUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReviewDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReviewUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReviewUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>[]
+        }
+        upsert: {
+          args: Prisma.ReviewUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReviewPayload>
+        }
+        aggregate: {
+          args: Prisma.ReviewAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReview>
+        }
+        groupBy: {
+          args: Prisma.ReviewGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReviewCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReviewCountAggregateOutputType> | number
+        }
+      }
+    }
+    TravelPlan: {
+      payload: Prisma.$TravelPlanPayload<ExtArgs>
+      fields: Prisma.TravelPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TravelPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TravelPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.TravelPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TravelPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        findMany: {
+          args: Prisma.TravelPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>[]
+        }
+        create: {
+          args: Prisma.TravelPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        createMany: {
+          args: Prisma.TravelPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TravelPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.TravelPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        update: {
+          args: Prisma.TravelPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.TravelPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TravelPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TravelPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.TravelPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TravelPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.TravelPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTravelPlan>
+        }
+        groupBy: {
+          args: Prisma.TravelPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TravelPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TravelPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TravelPlanCountAggregateOutputType> | number
+        }
+      }
+    }
     User: {
       payload: Prisma.$UserPayload<ExtArgs>
       fields: Prisma.UserFieldRefs
@@ -517,6 +667,37 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const ReviewScalarFieldEnum = {
+  id: 'id',
+  reviewTo: 'reviewTo',
+  reviewFrom: 'reviewFrom',
+  travel_id: 'travel_id',
+  rating: 'rating',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const TravelPlanScalarFieldEnum = {
+  id: 'id',
+  destination: 'destination',
+  creator_id: 'creator_id',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  budgetRange: 'budgetRange',
+  travelType: 'travelType',
+  description: 'description',
+  interestedMembers: 'interestedMembers',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TravelPlanScalarFieldEnum = (typeof TravelPlanScalarFieldEnum)[keyof typeof TravelPlanScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   fullName: 'fullName',
@@ -524,6 +705,8 @@ export const UserScalarFieldEnum = {
   password: 'password',
   profilePhoto: 'profilePhoto',
   role: 'role',
+  avgRating: 'avgRating',
+  isPremiumTaken: 'isPremiumTaken',
   bio: 'bio',
   travelInterests: 'travelInterests',
   visitedCountries: 'visitedCountries',
@@ -580,44 +763,16 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'UserRole'
+ * Reference to a field of type 'Int'
  */
-export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
 /**
- * Reference to a field of type 'UserRole[]'
+ * Reference to a field of type 'Int[]'
  */
-export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole[]'>
-    
-
-
-/**
- * Reference to a field of type 'TravelInterest[]'
- */
-export type ListEnumTravelInterestFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelInterest[]'>
-    
-
-
-/**
- * Reference to a field of type 'TravelInterest'
- */
-export type EnumTravelInterestFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelInterest'>
-    
-
-
-/**
- * Reference to a field of type 'Country[]'
- */
-export type ListEnumCountryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Country[]'>
-    
-
-
-/**
- * Reference to a field of type 'Country'
- */
-export type EnumCountryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Country'>
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -636,16 +791,79 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
- * Reference to a field of type 'Int'
+ * Reference to a field of type 'Country'
  */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+export type EnumCountryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Country'>
     
 
 
 /**
- * Reference to a field of type 'Int[]'
+ * Reference to a field of type 'Country[]'
  */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+export type ListEnumCountryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Country[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TravelType'
+ */
+export type EnumTravelTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelType'>
+    
+
+
+/**
+ * Reference to a field of type 'TravelType[]'
+ */
+export type ListEnumTravelTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'UserRole'
+ */
+export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
+    
+
+
+/**
+ * Reference to a field of type 'UserRole[]'
+ */
+export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'TravelInterest[]'
+ */
+export type ListEnumTravelInterestFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelInterest[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TravelInterest'
+ */
+export type EnumTravelInterestFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelInterest'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -743,6 +961,8 @@ export type PrismaClientOptions = ({
   comments?: runtime.SqlCommenterPlugin[]
 }
 export type GlobalOmitConfig = {
+  review?: Prisma.ReviewOmit
+  travelPlan?: Prisma.TravelPlanOmit
   user?: Prisma.UserOmit
 }
 
