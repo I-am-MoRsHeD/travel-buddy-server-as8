@@ -17,6 +17,14 @@ export const UserRole = {
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
+export const UserStatus = {
+  ACTIVE: 'ACTIVE',
+  BLOCKED: 'BLOCKED'
+} as const
+
+export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
+
+
 export const TravelType = {
   SOLO: 'SOLO',
   FAMILY: 'FAMILY',
@@ -24,6 +32,16 @@ export const TravelType = {
 } as const
 
 export type TravelType = (typeof TravelType)[keyof typeof TravelType]
+
+
+export const TravelStatus = {
+  UPCOMING: 'UPCOMING',
+  ONGOING: 'ONGOING',
+  COMPLETED: 'COMPLETED',
+  POSTPONED: 'POSTPONED'
+} as const
+
+export type TravelStatus = (typeof TravelStatus)[keyof typeof TravelStatus]
 
 
 export const TravelInterest = {

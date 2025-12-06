@@ -3,7 +3,6 @@ import { jwtHelpers } from "../../helpers/jwtHelpers";
 import config from "../../../config";
 import ApiError from "../../errorHelpers/ApiError";
 import httpStatus from 'http-status';
-import type { Secret } from "jsonwebtoken";
 import { prisma } from '../../../lib/prisma';
 
 
@@ -25,6 +24,7 @@ const login = async (payload: { email: string, password: string }) => {
     };
 
     const jwtPayload = {
+        userId: user.id,
         email: user.email,
         role: user.role
     };
@@ -38,33 +38,7 @@ const login = async (payload: { email: string, password: string }) => {
     };
 };
 
-const getMe = async (user: any) => {
-    const accessToken = user.accessToken;
-    const decodedData = jwtHelpers.verifyToken(accessToken, config.jwt.jwt_access_secret as Secret);
-
-    const userData = await prisma.user.findUniqueOrThrow({
-        where: {
-            email: decodedData.email
-        },
-        select: {
-            id: true,
-            fullName: true,
-            email: true,
-            role: true,
-            profilePhoto: true,
-            bio: true,
-            travelInterests: true,
-            visitedCountries: true,
-            currentLocation: true,
-            createdAt: true,
-            updatedAt: true,
-        }
-    });
-
-    return userData;
-};
 
 export const AuthService = {
     login,
-    getMe
 };

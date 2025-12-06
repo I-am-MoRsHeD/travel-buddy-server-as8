@@ -671,7 +671,6 @@ export const ReviewScalarFieldEnum = {
   id: 'id',
   reviewTo: 'reviewTo',
   reviewFrom: 'reviewFrom',
-  travel_id: 'travel_id',
   rating: 'rating',
   description: 'description',
   createdAt: 'createdAt',
@@ -689,6 +688,7 @@ export const TravelPlanScalarFieldEnum = {
   endDate: 'endDate',
   budgetRange: 'budgetRange',
   travelType: 'travelType',
+  travelStatus: 'travelStatus',
   description: 'description',
   interestedMembers: 'interestedMembers',
   createdAt: 'createdAt',
@@ -708,6 +708,7 @@ export const UserScalarFieldEnum = {
   avgRating: 'avgRating',
   isPremiumTaken: 'isPremiumTaken',
   bio: 'bio',
+  status: 'status',
   travelInterests: 'travelInterests',
   visitedCountries: 'visitedCountries',
   currentLocation: 'currentLocation',
@@ -819,6 +820,20 @@ export type ListEnumTravelTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$P
 
 
 /**
+ * Reference to a field of type 'TravelStatus'
+ */
+export type EnumTravelStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'TravelStatus[]'
+ */
+export type ListEnumTravelStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TravelStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'UserRole'
  */
 export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
@@ -836,6 +851,20 @@ export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'UserStatus'
+ */
+export type EnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'UserStatus[]'
+ */
+export type ListEnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserStatus[]'>
     
 
 

@@ -44,6 +44,7 @@ export type UserMinAggregateOutputType = {
   avgRating: number | null
   isPremiumTaken: boolean | null
   bio: string | null
+  status: $Enums.UserStatus | null
   currentLocation: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -59,6 +60,7 @@ export type UserMaxAggregateOutputType = {
   avgRating: number | null
   isPremiumTaken: boolean | null
   bio: string | null
+  status: $Enums.UserStatus | null
   currentLocation: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -74,6 +76,7 @@ export type UserCountAggregateOutputType = {
   avgRating: number
   isPremiumTaken: number
   bio: number
+  status: number
   travelInterests: number
   visitedCountries: number
   currentLocation: number
@@ -101,6 +104,7 @@ export type UserMinAggregateInputType = {
   avgRating?: true
   isPremiumTaken?: true
   bio?: true
+  status?: true
   currentLocation?: true
   createdAt?: true
   updatedAt?: true
@@ -116,6 +120,7 @@ export type UserMaxAggregateInputType = {
   avgRating?: true
   isPremiumTaken?: true
   bio?: true
+  status?: true
   currentLocation?: true
   createdAt?: true
   updatedAt?: true
@@ -131,6 +136,7 @@ export type UserCountAggregateInputType = {
   avgRating?: true
   isPremiumTaken?: true
   bio?: true
+  status?: true
   travelInterests?: true
   visitedCountries?: true
   currentLocation?: true
@@ -235,6 +241,7 @@ export type UserGroupByOutputType = {
   avgRating: number | null
   isPremiumTaken: boolean
   bio: string | null
+  status: $Enums.UserStatus
   travelInterests: $Enums.TravelInterest[]
   visitedCountries: $Enums.Country[]
   currentLocation: string | null
@@ -275,6 +282,7 @@ export type UserWhereInput = {
   avgRating?: Prisma.IntNullableFilter<"User"> | number | null
   isPremiumTaken?: Prisma.BoolFilter<"User"> | boolean
   bio?: Prisma.StringNullableFilter<"User"> | string | null
+  status?: Prisma.EnumUserStatusFilter<"User"> | $Enums.UserStatus
   travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
   visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
   currentLocation?: Prisma.StringNullableFilter<"User"> | string | null
@@ -295,6 +303,7 @@ export type UserOrderByWithRelationInput = {
   avgRating?: Prisma.SortOrderInput | Prisma.SortOrder
   isPremiumTaken?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   travelInterests?: Prisma.SortOrder
   visitedCountries?: Prisma.SortOrder
   currentLocation?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -318,6 +327,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   avgRating?: Prisma.IntNullableFilter<"User"> | number | null
   isPremiumTaken?: Prisma.BoolFilter<"User"> | boolean
   bio?: Prisma.StringNullableFilter<"User"> | string | null
+  status?: Prisma.EnumUserStatusFilter<"User"> | $Enums.UserStatus
   travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
   visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
   currentLocation?: Prisma.StringNullableFilter<"User"> | string | null
@@ -338,6 +348,7 @@ export type UserOrderByWithAggregationInput = {
   avgRating?: Prisma.SortOrderInput | Prisma.SortOrder
   isPremiumTaken?: Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   travelInterests?: Prisma.SortOrder
   visitedCountries?: Prisma.SortOrder
   currentLocation?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -363,6 +374,7 @@ export type UserScalarWhereWithAggregatesInput = {
   avgRating?: Prisma.IntNullableWithAggregatesFilter<"User"> | number | null
   isPremiumTaken?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   bio?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  status?: Prisma.EnumUserStatusWithAggregatesFilter<"User"> | $Enums.UserStatus
   travelInterests?: Prisma.EnumTravelInterestNullableListFilter<"User">
   visitedCountries?: Prisma.EnumCountryNullableListFilter<"User">
   currentLocation?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
@@ -380,6 +392,7 @@ export type UserCreateInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -400,6 +413,7 @@ export type UserUncheckedCreateInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -420,6 +434,7 @@ export type UserUpdateInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -440,6 +455,7 @@ export type UserUncheckedUpdateInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -460,6 +476,7 @@ export type UserCreateManyInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -477,6 +494,7 @@ export type UserUpdateManyMutationInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -494,6 +512,7 @@ export type UserUncheckedUpdateManyInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -532,6 +551,7 @@ export type UserCountOrderByAggregateInput = {
   avgRating?: Prisma.SortOrder
   isPremiumTaken?: Prisma.SortOrder
   bio?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   travelInterests?: Prisma.SortOrder
   visitedCountries?: Prisma.SortOrder
   currentLocation?: Prisma.SortOrder
@@ -553,6 +573,7 @@ export type UserMaxOrderByAggregateInput = {
   avgRating?: Prisma.SortOrder
   isPremiumTaken?: Prisma.SortOrder
   bio?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   currentLocation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -568,6 +589,7 @@ export type UserMinOrderByAggregateInput = {
   avgRating?: Prisma.SortOrder
   isPremiumTaken?: Prisma.SortOrder
   bio?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   currentLocation?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -647,6 +669,10 @@ export type BoolFieldUpdateOperationsInput = {
   set?: boolean
 }
 
+export type EnumUserStatusFieldUpdateOperationsInput = {
+  set?: $Enums.UserStatus
+}
+
 export type UserUpdatetravelInterestsInput = {
   set?: $Enums.TravelInterest[]
   push?: $Enums.TravelInterest | $Enums.TravelInterest[]
@@ -667,6 +693,7 @@ export type UserCreateWithoutReviewsReceivedInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -686,6 +713,7 @@ export type UserUncheckedCreateWithoutReviewsReceivedInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -710,6 +738,7 @@ export type UserCreateWithoutReviewsSenderInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -729,6 +758,7 @@ export type UserUncheckedCreateWithoutReviewsSenderInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -764,6 +794,7 @@ export type UserUpdateWithoutReviewsReceivedInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -783,6 +814,7 @@ export type UserUncheckedUpdateWithoutReviewsReceivedInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -813,6 +845,7 @@ export type UserUpdateWithoutReviewsSenderInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -832,6 +865,7 @@ export type UserUncheckedUpdateWithoutReviewsSenderInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -851,6 +885,7 @@ export type UserCreateWithoutTravelPlansInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -870,6 +905,7 @@ export type UserUncheckedCreateWithoutTravelPlansInput = {
   avgRating?: number | null
   isPremiumTaken?: boolean
   bio?: string | null
+  status?: $Enums.UserStatus
   travelInterests?: Prisma.UserCreatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserCreatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: string | null
@@ -905,6 +941,7 @@ export type UserUpdateWithoutTravelPlansInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -924,6 +961,7 @@ export type UserUncheckedUpdateWithoutTravelPlansInput = {
   avgRating?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isPremiumTaken?: Prisma.BoolFieldUpdateOperationsInput | boolean
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
   travelInterests?: Prisma.UserUpdatetravelInterestsInput | $Enums.TravelInterest[]
   visitedCountries?: Prisma.UserUpdatevisitedCountriesInput | $Enums.Country[]
   currentLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -992,6 +1030,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   avgRating?: boolean
   isPremiumTaken?: boolean
   bio?: boolean
+  status?: boolean
   travelInterests?: boolean
   visitedCountries?: boolean
   currentLocation?: boolean
@@ -1013,6 +1052,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   avgRating?: boolean
   isPremiumTaken?: boolean
   bio?: boolean
+  status?: boolean
   travelInterests?: boolean
   visitedCountries?: boolean
   currentLocation?: boolean
@@ -1030,6 +1070,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   avgRating?: boolean
   isPremiumTaken?: boolean
   bio?: boolean
+  status?: boolean
   travelInterests?: boolean
   visitedCountries?: boolean
   currentLocation?: boolean
@@ -1047,6 +1088,7 @@ export type UserSelectScalar = {
   avgRating?: boolean
   isPremiumTaken?: boolean
   bio?: boolean
+  status?: boolean
   travelInterests?: boolean
   visitedCountries?: boolean
   currentLocation?: boolean
@@ -1054,7 +1096,7 @@ export type UserSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "email" | "password" | "profilePhoto" | "role" | "avgRating" | "isPremiumTaken" | "bio" | "travelInterests" | "visitedCountries" | "currentLocation" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullName" | "email" | "password" | "profilePhoto" | "role" | "avgRating" | "isPremiumTaken" | "bio" | "status" | "travelInterests" | "visitedCountries" | "currentLocation" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   travelPlans?: boolean | Prisma.User$travelPlansArgs<ExtArgs>
   reviewsReceived?: boolean | Prisma.User$reviewsReceivedArgs<ExtArgs>
@@ -1081,6 +1123,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     avgRating: number | null
     isPremiumTaken: boolean
     bio: string | null
+    status: $Enums.UserStatus
     travelInterests: $Enums.TravelInterest[]
     visitedCountries: $Enums.Country[]
     currentLocation: string | null
@@ -1521,6 +1564,7 @@ export interface UserFieldRefs {
   readonly avgRating: Prisma.FieldRef<"User", 'Int'>
   readonly isPremiumTaken: Prisma.FieldRef<"User", 'Boolean'>
   readonly bio: Prisma.FieldRef<"User", 'String'>
+  readonly status: Prisma.FieldRef<"User", 'UserStatus'>
   readonly travelInterests: Prisma.FieldRef<"User", 'TravelInterest[]'>
   readonly visitedCountries: Prisma.FieldRef<"User", 'Country[]'>
   readonly currentLocation: Prisma.FieldRef<"User", 'String'>

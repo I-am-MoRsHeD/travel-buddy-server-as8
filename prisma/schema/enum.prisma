@@ -3,10 +3,22 @@ enum UserRole {
     ADMIN
 }
 
+enum UserStatus {
+    ACTIVE
+    BLOCKED
+}
+
 enum TravelType {
     SOLO
     FAMILY
     FRIENDS
+}
+
+enum TravelStatus {
+    UPCOMING
+    ONGOING
+    COMPLETED
+    POSTPONED
 }
 
 enum TravelInterest {

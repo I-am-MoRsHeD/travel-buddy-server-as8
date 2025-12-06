@@ -32,6 +32,7 @@ export type TravelPlanMinAggregateOutputType = {
   endDate: Date | null
   budgetRange: string | null
   travelType: $Enums.TravelType | null
+  travelStatus: $Enums.TravelStatus | null
   description: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -45,6 +46,7 @@ export type TravelPlanMaxAggregateOutputType = {
   endDate: Date | null
   budgetRange: string | null
   travelType: $Enums.TravelType | null
+  travelStatus: $Enums.TravelStatus | null
   description: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -58,6 +60,7 @@ export type TravelPlanCountAggregateOutputType = {
   endDate: number
   budgetRange: number
   travelType: number
+  travelStatus: number
   description: number
   interestedMembers: number
   createdAt: number
@@ -74,6 +77,7 @@ export type TravelPlanMinAggregateInputType = {
   endDate?: true
   budgetRange?: true
   travelType?: true
+  travelStatus?: true
   description?: true
   createdAt?: true
   updatedAt?: true
@@ -87,6 +91,7 @@ export type TravelPlanMaxAggregateInputType = {
   endDate?: true
   budgetRange?: true
   travelType?: true
+  travelStatus?: true
   description?: true
   createdAt?: true
   updatedAt?: true
@@ -100,6 +105,7 @@ export type TravelPlanCountAggregateInputType = {
   endDate?: true
   budgetRange?: true
   travelType?: true
+  travelStatus?: true
   description?: true
   interestedMembers?: true
   createdAt?: true
@@ -187,6 +193,7 @@ export type TravelPlanGroupByOutputType = {
   endDate: Date
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus: $Enums.TravelStatus
   description: string
   interestedMembers: string[]
   createdAt: Date
@@ -222,6 +229,7 @@ export type TravelPlanWhereInput = {
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
   interestedMembers?: Prisma.StringNullableListFilter<"TravelPlan">
   createdAt?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
@@ -237,6 +245,7 @@ export type TravelPlanOrderByWithRelationInput = {
   endDate?: Prisma.SortOrder
   budgetRange?: Prisma.SortOrder
   travelType?: Prisma.SortOrder
+  travelStatus?: Prisma.SortOrder
   description?: Prisma.SortOrder
   interestedMembers?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -255,6 +264,7 @@ export type TravelPlanWhereUniqueInput = Prisma.AtLeast<{
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
   interestedMembers?: Prisma.StringNullableListFilter<"TravelPlan">
   createdAt?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
@@ -270,6 +280,7 @@ export type TravelPlanOrderByWithAggregationInput = {
   endDate?: Prisma.SortOrder
   budgetRange?: Prisma.SortOrder
   travelType?: Prisma.SortOrder
+  travelStatus?: Prisma.SortOrder
   description?: Prisma.SortOrder
   interestedMembers?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -290,6 +301,7 @@ export type TravelPlanScalarWhereWithAggregatesInput = {
   endDate?: Prisma.DateTimeWithAggregatesFilter<"TravelPlan"> | Date | string
   budgetRange?: Prisma.StringWithAggregatesFilter<"TravelPlan"> | string
   travelType?: Prisma.EnumTravelTypeWithAggregatesFilter<"TravelPlan"> | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusWithAggregatesFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringWithAggregatesFilter<"TravelPlan"> | string
   interestedMembers?: Prisma.StringNullableListFilter<"TravelPlan">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"TravelPlan"> | Date | string
@@ -303,6 +315,7 @@ export type TravelPlanCreateInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -318,6 +331,7 @@ export type TravelPlanUncheckedCreateInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -331,6 +345,7 @@ export type TravelPlanUpdateInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -346,6 +361,7 @@ export type TravelPlanUncheckedUpdateInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -360,6 +376,7 @@ export type TravelPlanCreateManyInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -373,6 +390,7 @@ export type TravelPlanUpdateManyMutationInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -387,6 +405,7 @@ export type TravelPlanUncheckedUpdateManyInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -409,6 +428,7 @@ export type TravelPlanCountOrderByAggregateInput = {
   endDate?: Prisma.SortOrder
   budgetRange?: Prisma.SortOrder
   travelType?: Prisma.SortOrder
+  travelStatus?: Prisma.SortOrder
   description?: Prisma.SortOrder
   interestedMembers?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -423,6 +443,7 @@ export type TravelPlanMaxOrderByAggregateInput = {
   endDate?: Prisma.SortOrder
   budgetRange?: Prisma.SortOrder
   travelType?: Prisma.SortOrder
+  travelStatus?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -436,6 +457,7 @@ export type TravelPlanMinOrderByAggregateInput = {
   endDate?: Prisma.SortOrder
   budgetRange?: Prisma.SortOrder
   travelType?: Prisma.SortOrder
+  travelStatus?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -461,6 +483,10 @@ export type EnumCountryFieldUpdateOperationsInput = {
 
 export type EnumTravelTypeFieldUpdateOperationsInput = {
   set?: $Enums.TravelType
+}
+
+export type EnumTravelStatusFieldUpdateOperationsInput = {
+  set?: $Enums.TravelStatus
 }
 
 export type TravelPlanUpdateinterestedMembersInput = {
@@ -517,6 +543,7 @@ export type TravelPlanCreateWithoutCreatorInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -530,6 +557,7 @@ export type TravelPlanUncheckedCreateWithoutCreatorInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -573,6 +601,7 @@ export type TravelPlanScalarWhereInput = {
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
   interestedMembers?: Prisma.StringNullableListFilter<"TravelPlan">
   createdAt?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
@@ -586,6 +615,7 @@ export type TravelPlanCreateManyCreatorInput = {
   endDate: Date | string
   budgetRange: string
   travelType: $Enums.TravelType
+  travelStatus?: $Enums.TravelStatus
   description: string
   interestedMembers?: Prisma.TravelPlanCreateinterestedMembersInput | string[]
   createdAt?: Date | string
@@ -599,6 +629,7 @@ export type TravelPlanUpdateWithoutCreatorInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -612,6 +643,7 @@ export type TravelPlanUncheckedUpdateWithoutCreatorInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -625,6 +657,7 @@ export type TravelPlanUncheckedUpdateManyWithoutCreatorInput = {
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
+  travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
   interestedMembers?: Prisma.TravelPlanUpdateinterestedMembersInput | string[]
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -641,6 +674,7 @@ export type TravelPlanSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   endDate?: boolean
   budgetRange?: boolean
   travelType?: boolean
+  travelStatus?: boolean
   description?: boolean
   interestedMembers?: boolean
   createdAt?: boolean
@@ -656,6 +690,7 @@ export type TravelPlanSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   endDate?: boolean
   budgetRange?: boolean
   travelType?: boolean
+  travelStatus?: boolean
   description?: boolean
   interestedMembers?: boolean
   createdAt?: boolean
@@ -671,6 +706,7 @@ export type TravelPlanSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   endDate?: boolean
   budgetRange?: boolean
   travelType?: boolean
+  travelStatus?: boolean
   description?: boolean
   interestedMembers?: boolean
   createdAt?: boolean
@@ -686,13 +722,14 @@ export type TravelPlanSelectScalar = {
   endDate?: boolean
   budgetRange?: boolean
   travelType?: boolean
+  travelStatus?: boolean
   description?: boolean
   interestedMembers?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type TravelPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "destination" | "creator_id" | "startDate" | "endDate" | "budgetRange" | "travelType" | "description" | "interestedMembers" | "createdAt" | "updatedAt", ExtArgs["result"]["travelPlan"]>
+export type TravelPlanOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "destination" | "creator_id" | "startDate" | "endDate" | "budgetRange" | "travelType" | "travelStatus" | "description" | "interestedMembers" | "createdAt" | "updatedAt", ExtArgs["result"]["travelPlan"]>
 export type TravelPlanInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   creator?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -716,6 +753,7 @@ export type $TravelPlanPayload<ExtArgs extends runtime.Types.Extensions.Internal
     endDate: Date
     budgetRange: string
     travelType: $Enums.TravelType
+    travelStatus: $Enums.TravelStatus
     description: string
     interestedMembers: string[]
     createdAt: Date
@@ -1151,6 +1189,7 @@ export interface TravelPlanFieldRefs {
   readonly endDate: Prisma.FieldRef<"TravelPlan", 'DateTime'>
   readonly budgetRange: Prisma.FieldRef<"TravelPlan", 'String'>
   readonly travelType: Prisma.FieldRef<"TravelPlan", 'TravelType'>
+  readonly travelStatus: Prisma.FieldRef<"TravelPlan", 'TravelStatus'>
   readonly description: Prisma.FieldRef<"TravelPlan", 'String'>
   readonly interestedMembers: Prisma.FieldRef<"TravelPlan", 'String[]'>
   readonly createdAt: Prisma.FieldRef<"TravelPlan", 'DateTime'>

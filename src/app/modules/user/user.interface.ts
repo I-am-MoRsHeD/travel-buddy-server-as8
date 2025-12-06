@@ -1,4 +1,4 @@
-import type { Country, TravelInterest, UserRole } from "../../../../prisma/generated/prisma/enums";
+import type { Country, TravelInterest, UserRole, UserStatus } from "../../../../prisma/generated/prisma/enums";
 
 
 
@@ -12,6 +12,7 @@ export interface IUserCreateInput {
     avgRating?: number;
     isPremiumTaken?: boolean;
     bio?: string | null;
+    status: UserStatus;
     travelInterests?: TravelInterest[];
     visitedCountries?: Country[];
     currentLocation?: string;

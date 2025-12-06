@@ -8,6 +8,7 @@ model User {
     avgRating        Int?             @default(0)
     isPremiumTaken   Boolean          @default(false)
     bio              String?
+    status           UserStatus       @default(ACTIVE)
     travelInterests  TravelInterest[] @default([])
     visitedCountries Country[]        @default([])
     currentLocation  String?
@@ -16,5 +17,5 @@ model User {
 
     travelPlans     TravelPlan[]
     reviewsReceived Review[]     @relation("reviewsReceived")
-    reviewsSender   Review[]     @relation("reviewsSender")
+    reviewsSent     Review[]     @relation("reviewsSender")
 }
