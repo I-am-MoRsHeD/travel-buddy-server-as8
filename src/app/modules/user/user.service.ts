@@ -9,7 +9,8 @@ import bcrypt from 'bcryptjs';
 import { pick } from "../../helpers/pick";
 import calculatedPagination from "../../helpers/paginationHelpers";
 import { userFilterableFields, userOptionItems, userSearchableFields } from "./user.constants";
-
+import { jwtHelpers } from "../../helpers/jwtHelpers";
+import httpStatus from 'http-status';
 
 
 const getAllUsers = async (query: Record<string, any>) => {
@@ -127,8 +128,40 @@ const register = async (payload: IUserCreateInput) => {
     return result;
 };
 
+const login = async (payload: { email: string, password: string }) => {
+    const user = await prisma.user.findUniqueOrThrow({
+        where: {
+            email: payload?.email,
+        },
+    });
+
+    if (!user) {
+        throw new ApiError(httpStatus.NOT_FOUND, 'User not found!');
+    };
+
+    const comparePassword = await bcrypt.compare(payload.password, user.password);
+
+    if (!comparePassword) {
+        throw new ApiError(400, 'Password is incorrect!');
+    };
+
+    const jwtPayload = {
+        userId: user.id,
+        email: user.email,
+        role: user.role
+    };
+
+    const accessToken = jwtHelpers.generateToken(jwtPayload, config.jwt.jwt_access_secret, config.jwt.jwt_access_expires);
+    const refreshToken = jwtHelpers.generateToken(jwtPayload, config.jwt.jwt_refresh_secret, config.jwt.jwt_refresh_expires);
+
+    return {
+        accessToken,
+        refreshToken
+    };
+};
+
 const updateProfile = async (id: string, user: JwtPayload, payload: Partial<IUserCreateInput>) => {
-    
+
     await prisma.user.findUniqueOrThrow({
         where: {
             id,
@@ -171,8 +204,9 @@ const updateProfile = async (id: string, user: JwtPayload, payload: Partial<IUse
 
 
 export const UserService = {
-    register,
-    updateProfile,
     getAllUsers,
-    getMyProfile
+    getMyProfile,
+    register,
+    login,
+    updateProfile,
 }

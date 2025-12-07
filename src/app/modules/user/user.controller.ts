@@ -2,6 +2,8 @@ import type { Request, Response } from "express";
 import catchAsync from "../../shared/catchAsync";
 import { UserService } from "./user.service";
 import sendResponse from "../../shared/sendResponse";
+import { convertExpireToMS } from "../../helpers/convertExpireToMS";
+import config from "../../../config";
 
 
 
@@ -43,6 +45,37 @@ const register = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
+const login = catchAsync(async (req: Request, res: Response) => {
+    const accessTokenExpiresIn = config.jwt.jwt_access_expires as string;
+    const refreshTokenExpiresIn = config.jwt.jwt_refresh_expires as string;
+
+    const accessTokenMS = convertExpireToMS(accessTokenExpiresIn);
+    const refreshTokenMS = convertExpireToMS(refreshTokenExpiresIn)
+
+    const result = await UserService.login(req.body);
+    const { accessToken, refreshToken } = result;
+
+    res.cookie("accessToken", accessToken, {
+        secure: true,
+        httpOnly: true,
+        sameSite: 'none',
+        maxAge: accessTokenMS
+    });
+    res.cookie("refreshToken", refreshToken, {
+        secure: true,
+        httpOnly: true,
+        sameSite: 'none',
+        maxAge: refreshTokenMS
+    });
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: 'User logged in successfully',
+        data: null
+    });
+});
+
 const updateProfile = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
     const user = req.user;
@@ -57,8 +90,9 @@ const updateProfile = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const UserController = {
-    register,
-    updateProfile,
     getAllUsers,
     getMyProfile,
+    register,
+    login,
+    updateProfile,
 };

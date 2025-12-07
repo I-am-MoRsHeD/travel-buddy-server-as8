@@ -23,6 +23,9 @@ router.post('/register',
     validateRequest(userRegisterZodSchema),
     UserController.register);
 
+router.post('/login',
+    UserController.login);
+
 router.patch('/update/:id',
     checkAuth(UserRole.USER, UserRole.ADMIN),
     fileUploader.upload.single('file'),
