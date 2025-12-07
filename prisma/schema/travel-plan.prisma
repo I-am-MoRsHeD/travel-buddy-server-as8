@@ -8,7 +8,7 @@ model TravelPlan {
     travelType        TravelType
     travelStatus      TravelStatus @default(UPCOMING)
     description       String
-    interestedMembers String[]
+    interestedMembers String[]     @default([])
     creator           User         @relation(fields: [creator_id], references: [id])
     createdAt         DateTime     @default(now())
     updatedAt         DateTime     @updatedAt
