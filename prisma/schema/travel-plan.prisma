@@ -4,7 +4,7 @@ model TravelPlan {
     creator_id        String
     startDate         DateTime
     endDate           DateTime
-    budgetRange       String
+    budgetRange       Int
     travelType        TravelType
     travelStatus      TravelStatus @default(UPCOMING)
     description       String

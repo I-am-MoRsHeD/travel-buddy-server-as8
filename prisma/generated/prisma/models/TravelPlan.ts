@@ -20,8 +20,18 @@ export type TravelPlanModel = runtime.Types.Result.DefaultSelection<Prisma.$Trav
 
 export type AggregateTravelPlan = {
   _count: TravelPlanCountAggregateOutputType | null
+  _avg: TravelPlanAvgAggregateOutputType | null
+  _sum: TravelPlanSumAggregateOutputType | null
   _min: TravelPlanMinAggregateOutputType | null
   _max: TravelPlanMaxAggregateOutputType | null
+}
+
+export type TravelPlanAvgAggregateOutputType = {
+  budgetRange: number | null
+}
+
+export type TravelPlanSumAggregateOutputType = {
+  budgetRange: number | null
 }
 
 export type TravelPlanMinAggregateOutputType = {
@@ -30,7 +40,7 @@ export type TravelPlanMinAggregateOutputType = {
   creator_id: string | null
   startDate: Date | null
   endDate: Date | null
-  budgetRange: string | null
+  budgetRange: number | null
   travelType: $Enums.TravelType | null
   travelStatus: $Enums.TravelStatus | null
   description: string | null
@@ -44,7 +54,7 @@ export type TravelPlanMaxAggregateOutputType = {
   creator_id: string | null
   startDate: Date | null
   endDate: Date | null
-  budgetRange: string | null
+  budgetRange: number | null
   travelType: $Enums.TravelType | null
   travelStatus: $Enums.TravelStatus | null
   description: string | null
@@ -68,6 +78,14 @@ export type TravelPlanCountAggregateOutputType = {
   _all: number
 }
 
+
+export type TravelPlanAvgAggregateInputType = {
+  budgetRange?: true
+}
+
+export type TravelPlanSumAggregateInputType = {
+  budgetRange?: true
+}
 
 export type TravelPlanMinAggregateInputType = {
   id?: true
@@ -151,6 +169,18 @@ export type TravelPlanAggregateArgs<ExtArgs extends runtime.Types.Extensions.Int
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: TravelPlanAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: TravelPlanSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: TravelPlanMinAggregateInputType
@@ -181,6 +211,8 @@ export type TravelPlanGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   _count?: TravelPlanCountAggregateInputType | true
+  _avg?: TravelPlanAvgAggregateInputType
+  _sum?: TravelPlanSumAggregateInputType
   _min?: TravelPlanMinAggregateInputType
   _max?: TravelPlanMaxAggregateInputType
 }
@@ -191,7 +223,7 @@ export type TravelPlanGroupByOutputType = {
   creator_id: string
   startDate: Date
   endDate: Date
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus: $Enums.TravelStatus
   description: string
@@ -199,6 +231,8 @@ export type TravelPlanGroupByOutputType = {
   createdAt: Date
   updatedAt: Date
   _count: TravelPlanCountAggregateOutputType | null
+  _avg: TravelPlanAvgAggregateOutputType | null
+  _sum: TravelPlanSumAggregateOutputType | null
   _min: TravelPlanMinAggregateOutputType | null
   _max: TravelPlanMaxAggregateOutputType | null
 }
@@ -227,7 +261,7 @@ export type TravelPlanWhereInput = {
   creator_id?: Prisma.StringFilter<"TravelPlan"> | string
   startDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
-  budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
+  budgetRange?: Prisma.IntFilter<"TravelPlan"> | number
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
@@ -262,7 +296,7 @@ export type TravelPlanWhereUniqueInput = Prisma.AtLeast<{
   creator_id?: Prisma.StringFilter<"TravelPlan"> | string
   startDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
-  budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
+  budgetRange?: Prisma.IntFilter<"TravelPlan"> | number
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
@@ -286,8 +320,10 @@ export type TravelPlanOrderByWithAggregationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.TravelPlanCountOrderByAggregateInput
+  _avg?: Prisma.TravelPlanAvgOrderByAggregateInput
   _max?: Prisma.TravelPlanMaxOrderByAggregateInput
   _min?: Prisma.TravelPlanMinOrderByAggregateInput
+  _sum?: Prisma.TravelPlanSumOrderByAggregateInput
 }
 
 export type TravelPlanScalarWhereWithAggregatesInput = {
@@ -299,7 +335,7 @@ export type TravelPlanScalarWhereWithAggregatesInput = {
   creator_id?: Prisma.StringWithAggregatesFilter<"TravelPlan"> | string
   startDate?: Prisma.DateTimeWithAggregatesFilter<"TravelPlan"> | Date | string
   endDate?: Prisma.DateTimeWithAggregatesFilter<"TravelPlan"> | Date | string
-  budgetRange?: Prisma.StringWithAggregatesFilter<"TravelPlan"> | string
+  budgetRange?: Prisma.IntWithAggregatesFilter<"TravelPlan"> | number
   travelType?: Prisma.EnumTravelTypeWithAggregatesFilter<"TravelPlan"> | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusWithAggregatesFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringWithAggregatesFilter<"TravelPlan"> | string
@@ -313,7 +349,7 @@ export type TravelPlanCreateInput = {
   destination: $Enums.Country
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -329,7 +365,7 @@ export type TravelPlanUncheckedCreateInput = {
   creator_id: string
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -343,7 +379,7 @@ export type TravelPlanUpdateInput = {
   destination?: Prisma.EnumCountryFieldUpdateOperationsInput | $Enums.Country
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -359,7 +395,7 @@ export type TravelPlanUncheckedUpdateInput = {
   creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -374,7 +410,7 @@ export type TravelPlanCreateManyInput = {
   creator_id: string
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -388,7 +424,7 @@ export type TravelPlanUpdateManyMutationInput = {
   destination?: Prisma.EnumCountryFieldUpdateOperationsInput | $Enums.Country
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -403,7 +439,7 @@ export type TravelPlanUncheckedUpdateManyInput = {
   creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -435,6 +471,10 @@ export type TravelPlanCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
+export type TravelPlanAvgOrderByAggregateInput = {
+  budgetRange?: Prisma.SortOrder
+}
+
 export type TravelPlanMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   destination?: Prisma.SortOrder
@@ -461,6 +501,10 @@ export type TravelPlanMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type TravelPlanSumOrderByAggregateInput = {
+  budgetRange?: Prisma.SortOrder
 }
 
 export type TravelPlanListRelationFilter = {
@@ -541,7 +585,7 @@ export type TravelPlanCreateWithoutCreatorInput = {
   destination: $Enums.Country
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -555,7 +599,7 @@ export type TravelPlanUncheckedCreateWithoutCreatorInput = {
   destination: $Enums.Country
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -599,7 +643,7 @@ export type TravelPlanScalarWhereInput = {
   creator_id?: Prisma.StringFilter<"TravelPlan"> | string
   startDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
   endDate?: Prisma.DateTimeFilter<"TravelPlan"> | Date | string
-  budgetRange?: Prisma.StringFilter<"TravelPlan"> | string
+  budgetRange?: Prisma.IntFilter<"TravelPlan"> | number
   travelType?: Prisma.EnumTravelTypeFilter<"TravelPlan"> | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFilter<"TravelPlan"> | $Enums.TravelStatus
   description?: Prisma.StringFilter<"TravelPlan"> | string
@@ -613,7 +657,7 @@ export type TravelPlanCreateManyCreatorInput = {
   destination: $Enums.Country
   startDate: Date | string
   endDate: Date | string
-  budgetRange: string
+  budgetRange: number
   travelType: $Enums.TravelType
   travelStatus?: $Enums.TravelStatus
   description: string
@@ -627,7 +671,7 @@ export type TravelPlanUpdateWithoutCreatorInput = {
   destination?: Prisma.EnumCountryFieldUpdateOperationsInput | $Enums.Country
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -641,7 +685,7 @@ export type TravelPlanUncheckedUpdateWithoutCreatorInput = {
   destination?: Prisma.EnumCountryFieldUpdateOperationsInput | $Enums.Country
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -655,7 +699,7 @@ export type TravelPlanUncheckedUpdateManyWithoutCreatorInput = {
   destination?: Prisma.EnumCountryFieldUpdateOperationsInput | $Enums.Country
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  budgetRange?: Prisma.StringFieldUpdateOperationsInput | string
+  budgetRange?: Prisma.IntFieldUpdateOperationsInput | number
   travelType?: Prisma.EnumTravelTypeFieldUpdateOperationsInput | $Enums.TravelType
   travelStatus?: Prisma.EnumTravelStatusFieldUpdateOperationsInput | $Enums.TravelStatus
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -751,7 +795,7 @@ export type $TravelPlanPayload<ExtArgs extends runtime.Types.Extensions.Internal
     creator_id: string
     startDate: Date
     endDate: Date
-    budgetRange: string
+    budgetRange: number
     travelType: $Enums.TravelType
     travelStatus: $Enums.TravelStatus
     description: string
@@ -1187,7 +1231,7 @@ export interface TravelPlanFieldRefs {
   readonly creator_id: Prisma.FieldRef<"TravelPlan", 'String'>
   readonly startDate: Prisma.FieldRef<"TravelPlan", 'DateTime'>
   readonly endDate: Prisma.FieldRef<"TravelPlan", 'DateTime'>
-  readonly budgetRange: Prisma.FieldRef<"TravelPlan", 'String'>
+  readonly budgetRange: Prisma.FieldRef<"TravelPlan", 'Int'>
   readonly travelType: Prisma.FieldRef<"TravelPlan", 'TravelType'>
   readonly travelStatus: Prisma.FieldRef<"TravelPlan", 'TravelStatus'>
   readonly description: Prisma.FieldRef<"TravelPlan", 'String'>

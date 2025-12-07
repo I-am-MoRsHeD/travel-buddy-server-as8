@@ -1,4 +1,5 @@
 import z from "zod";
+import { UserStatus } from "../../../../prisma/generated/prisma/enums";
 
 
 export const userRegisterZodSchema = z.object({
@@ -22,5 +23,6 @@ export const userUpdateInfoZodSchema = z.object({
     ).optional(),
     currentLocation: z.string({
         error: "Current Location is required"
-    }).min(1, "At least 1 word").max(20, "Maximum of 20 words").optional()
+    }).min(1, "At least 1 word").max(20, "Maximum of 20 words").optional(),
+    status: z.enum(Object.values(UserStatus) as [string]).optional()
 });

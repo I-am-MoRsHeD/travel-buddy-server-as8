@@ -298,7 +298,7 @@ export type ReviewCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   reviewReceiver: Prisma.UserCreateNestedOneWithoutReviewsReceivedInput
-  reviewSender: Prisma.UserCreateNestedOneWithoutReviewsSenderInput
+  reviewSender: Prisma.UserCreateNestedOneWithoutReviewsSentInput
 }
 
 export type ReviewUncheckedCreateInput = {
@@ -318,7 +318,7 @@ export type ReviewUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviewReceiver?: Prisma.UserUpdateOneRequiredWithoutReviewsReceivedNestedInput
-  reviewSender?: Prisma.UserUpdateOneRequiredWithoutReviewsSenderNestedInput
+  reviewSender?: Prisma.UserUpdateOneRequiredWithoutReviewsSentNestedInput
 }
 
 export type ReviewUncheckedUpdateInput = {
@@ -513,7 +513,7 @@ export type ReviewCreateWithoutReviewReceiverInput = {
   description: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  reviewSender: Prisma.UserCreateNestedOneWithoutReviewsSenderInput
+  reviewSender: Prisma.UserCreateNestedOneWithoutReviewsSentInput
 }
 
 export type ReviewUncheckedCreateWithoutReviewReceiverInput = {
@@ -632,7 +632,7 @@ export type ReviewUpdateWithoutReviewReceiverInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  reviewSender?: Prisma.UserUpdateOneRequiredWithoutReviewsSenderNestedInput
+  reviewSender?: Prisma.UserUpdateOneRequiredWithoutReviewsSentNestedInput
 }
 
 export type ReviewUncheckedUpdateWithoutReviewReceiverInput = {

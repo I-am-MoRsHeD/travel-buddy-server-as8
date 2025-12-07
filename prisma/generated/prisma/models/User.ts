@@ -290,7 +290,7 @@ export type UserWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   travelPlans?: Prisma.TravelPlanListRelationFilter
   reviewsReceived?: Prisma.ReviewListRelationFilter
-  reviewsSender?: Prisma.ReviewListRelationFilter
+  reviewsSent?: Prisma.ReviewListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -311,7 +311,7 @@ export type UserOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   travelPlans?: Prisma.TravelPlanOrderByRelationAggregateInput
   reviewsReceived?: Prisma.ReviewOrderByRelationAggregateInput
-  reviewsSender?: Prisma.ReviewOrderByRelationAggregateInput
+  reviewsSent?: Prisma.ReviewOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -335,7 +335,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   travelPlans?: Prisma.TravelPlanListRelationFilter
   reviewsReceived?: Prisma.ReviewListRelationFilter
-  reviewsSender?: Prisma.ReviewListRelationFilter
+  reviewsSent?: Prisma.ReviewListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -400,7 +400,7 @@ export type UserCreateInput = {
   updatedAt?: Date | string
   travelPlans?: Prisma.TravelPlanCreateNestedManyWithoutCreatorInput
   reviewsReceived?: Prisma.ReviewCreateNestedManyWithoutReviewReceiverInput
-  reviewsSender?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -421,7 +421,7 @@ export type UserUncheckedCreateInput = {
   updatedAt?: Date | string
   travelPlans?: Prisma.TravelPlanUncheckedCreateNestedManyWithoutCreatorInput
   reviewsReceived?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewReceiverInput
-  reviewsSender?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserUpdateInput = {
@@ -442,7 +442,7 @@ export type UserUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   travelPlans?: Prisma.TravelPlanUpdateManyWithoutCreatorNestedInput
   reviewsReceived?: Prisma.ReviewUpdateManyWithoutReviewReceiverNestedInput
-  reviewsSender?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -463,7 +463,7 @@ export type UserUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   travelPlans?: Prisma.TravelPlanUncheckedUpdateManyWithoutCreatorNestedInput
   reviewsReceived?: Prisma.ReviewUncheckedUpdateManyWithoutReviewReceiverNestedInput
-  reviewsSender?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -605,9 +605,9 @@ export type UserCreateNestedOneWithoutReviewsReceivedInput = {
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserCreateNestedOneWithoutReviewsSenderInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewsSenderInput, Prisma.UserUncheckedCreateWithoutReviewsSenderInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewsSenderInput
+export type UserCreateNestedOneWithoutReviewsSentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewsSentInput, Prisma.UserUncheckedCreateWithoutReviewsSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewsSentInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
@@ -619,12 +619,12 @@ export type UserUpdateOneRequiredWithoutReviewsReceivedNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewsReceivedInput, Prisma.UserUpdateWithoutReviewsReceivedInput>, Prisma.UserUncheckedUpdateWithoutReviewsReceivedInput>
 }
 
-export type UserUpdateOneRequiredWithoutReviewsSenderNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewsSenderInput, Prisma.UserUncheckedCreateWithoutReviewsSenderInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewsSenderInput
-  upsert?: Prisma.UserUpsertWithoutReviewsSenderInput
+export type UserUpdateOneRequiredWithoutReviewsSentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutReviewsSentInput, Prisma.UserUncheckedCreateWithoutReviewsSentInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewsSentInput
+  upsert?: Prisma.UserUpsertWithoutReviewsSentInput
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewsSenderInput, Prisma.UserUpdateWithoutReviewsSenderInput>, Prisma.UserUncheckedUpdateWithoutReviewsSenderInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewsSentInput, Prisma.UserUpdateWithoutReviewsSentInput>, Prisma.UserUncheckedUpdateWithoutReviewsSentInput>
 }
 
 export type UserCreateNestedOneWithoutTravelPlansInput = {
@@ -700,7 +700,7 @@ export type UserCreateWithoutReviewsReceivedInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   travelPlans?: Prisma.TravelPlanCreateNestedManyWithoutCreatorInput
-  reviewsSender?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserUncheckedCreateWithoutReviewsReceivedInput = {
@@ -720,7 +720,7 @@ export type UserUncheckedCreateWithoutReviewsReceivedInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   travelPlans?: Prisma.TravelPlanUncheckedCreateNestedManyWithoutCreatorInput
-  reviewsSender?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserCreateOrConnectWithoutReviewsReceivedInput = {
@@ -728,7 +728,7 @@ export type UserCreateOrConnectWithoutReviewsReceivedInput = {
   create: Prisma.XOR<Prisma.UserCreateWithoutReviewsReceivedInput, Prisma.UserUncheckedCreateWithoutReviewsReceivedInput>
 }
 
-export type UserCreateWithoutReviewsSenderInput = {
+export type UserCreateWithoutReviewsSentInput = {
   id?: string
   fullName: string
   email: string
@@ -748,7 +748,7 @@ export type UserCreateWithoutReviewsSenderInput = {
   reviewsReceived?: Prisma.ReviewCreateNestedManyWithoutReviewReceiverInput
 }
 
-export type UserUncheckedCreateWithoutReviewsSenderInput = {
+export type UserUncheckedCreateWithoutReviewsSentInput = {
   id?: string
   fullName: string
   email: string
@@ -768,9 +768,9 @@ export type UserUncheckedCreateWithoutReviewsSenderInput = {
   reviewsReceived?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewReceiverInput
 }
 
-export type UserCreateOrConnectWithoutReviewsSenderInput = {
+export type UserCreateOrConnectWithoutReviewsSentInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutReviewsSenderInput, Prisma.UserUncheckedCreateWithoutReviewsSenderInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewsSentInput, Prisma.UserUncheckedCreateWithoutReviewsSentInput>
 }
 
 export type UserUpsertWithoutReviewsReceivedInput = {
@@ -801,7 +801,7 @@ export type UserUpdateWithoutReviewsReceivedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   travelPlans?: Prisma.TravelPlanUpdateManyWithoutCreatorNestedInput
-  reviewsSender?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
 }
 
 export type UserUncheckedUpdateWithoutReviewsReceivedInput = {
@@ -821,21 +821,21 @@ export type UserUncheckedUpdateWithoutReviewsReceivedInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   travelPlans?: Prisma.TravelPlanUncheckedUpdateManyWithoutCreatorNestedInput
-  reviewsSender?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
 }
 
-export type UserUpsertWithoutReviewsSenderInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewsSenderInput, Prisma.UserUncheckedUpdateWithoutReviewsSenderInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutReviewsSenderInput, Prisma.UserUncheckedCreateWithoutReviewsSenderInput>
+export type UserUpsertWithoutReviewsSentInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutReviewsSentInput, Prisma.UserUncheckedUpdateWithoutReviewsSentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutReviewsSentInput, Prisma.UserUncheckedCreateWithoutReviewsSentInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutReviewsSenderInput = {
+export type UserUpdateToOneWithWhereWithoutReviewsSentInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewsSenderInput, Prisma.UserUncheckedUpdateWithoutReviewsSenderInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutReviewsSentInput, Prisma.UserUncheckedUpdateWithoutReviewsSentInput>
 }
 
-export type UserUpdateWithoutReviewsSenderInput = {
+export type UserUpdateWithoutReviewsSentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -855,7 +855,7 @@ export type UserUpdateWithoutReviewsSenderInput = {
   reviewsReceived?: Prisma.ReviewUpdateManyWithoutReviewReceiverNestedInput
 }
 
-export type UserUncheckedUpdateWithoutReviewsSenderInput = {
+export type UserUncheckedUpdateWithoutReviewsSentInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -892,7 +892,7 @@ export type UserCreateWithoutTravelPlansInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   reviewsReceived?: Prisma.ReviewCreateNestedManyWithoutReviewReceiverInput
-  reviewsSender?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserUncheckedCreateWithoutTravelPlansInput = {
@@ -912,7 +912,7 @@ export type UserUncheckedCreateWithoutTravelPlansInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   reviewsReceived?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewReceiverInput
-  reviewsSender?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
+  reviewsSent?: Prisma.ReviewUncheckedCreateNestedManyWithoutReviewSenderInput
 }
 
 export type UserCreateOrConnectWithoutTravelPlansInput = {
@@ -948,7 +948,7 @@ export type UserUpdateWithoutTravelPlansInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviewsReceived?: Prisma.ReviewUpdateManyWithoutReviewReceiverNestedInput
-  reviewsSender?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUpdateManyWithoutReviewSenderNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTravelPlansInput = {
@@ -968,7 +968,7 @@ export type UserUncheckedUpdateWithoutTravelPlansInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reviewsReceived?: Prisma.ReviewUncheckedUpdateManyWithoutReviewReceiverNestedInput
-  reviewsSender?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
+  reviewsSent?: Prisma.ReviewUncheckedUpdateManyWithoutReviewSenderNestedInput
 }
 
 
@@ -979,13 +979,13 @@ export type UserUncheckedUpdateWithoutTravelPlansInput = {
 export type UserCountOutputType = {
   travelPlans: number
   reviewsReceived: number
-  reviewsSender: number
+  reviewsSent: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   travelPlans?: boolean | UserCountOutputTypeCountTravelPlansArgs
   reviewsReceived?: boolean | UserCountOutputTypeCountReviewsReceivedArgs
-  reviewsSender?: boolean | UserCountOutputTypeCountReviewsSenderArgs
+  reviewsSent?: boolean | UserCountOutputTypeCountReviewsSentArgs
 }
 
 /**
@@ -1015,7 +1015,7 @@ export type UserCountOutputTypeCountReviewsReceivedArgs<ExtArgs extends runtime.
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountReviewsSenderArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type UserCountOutputTypeCountReviewsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ReviewWhereInput
 }
 
@@ -1038,7 +1038,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   updatedAt?: boolean
   travelPlans?: boolean | Prisma.User$travelPlansArgs<ExtArgs>
   reviewsReceived?: boolean | Prisma.User$reviewsReceivedArgs<ExtArgs>
-  reviewsSender?: boolean | Prisma.User$reviewsSenderArgs<ExtArgs>
+  reviewsSent?: boolean | Prisma.User$reviewsSentArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1100,7 +1100,7 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   travelPlans?: boolean | Prisma.User$travelPlansArgs<ExtArgs>
   reviewsReceived?: boolean | Prisma.User$reviewsReceivedArgs<ExtArgs>
-  reviewsSender?: boolean | Prisma.User$reviewsSenderArgs<ExtArgs>
+  reviewsSent?: boolean | Prisma.User$reviewsSentArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1111,7 +1111,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     travelPlans: Prisma.$TravelPlanPayload<ExtArgs>[]
     reviewsReceived: Prisma.$ReviewPayload<ExtArgs>[]
-    reviewsSender: Prisma.$ReviewPayload<ExtArgs>[]
+    reviewsSent: Prisma.$ReviewPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1525,7 +1525,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   travelPlans<T extends Prisma.User$travelPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$travelPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TravelPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviewsReceived<T extends Prisma.User$reviewsReceivedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  reviewsSender<T extends Prisma.User$reviewsSenderArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsSenderArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  reviewsSent<T extends Prisma.User$reviewsSentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$reviewsSentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2006,9 +2006,9 @@ export type User$reviewsReceivedArgs<ExtArgs extends runtime.Types.Extensions.In
 }
 
 /**
- * User.reviewsSender
+ * User.reviewsSent
  */
-export type User$reviewsSenderArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$reviewsSentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
    * Select specific fields to fetch from the Review
    */

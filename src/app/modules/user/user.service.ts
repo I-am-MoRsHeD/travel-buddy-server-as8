@@ -128,7 +128,8 @@ const register = async (payload: IUserCreateInput) => {
 };
 
 const updateProfile = async (id: string, user: JwtPayload, payload: Partial<IUserCreateInput>) => {
-    const userInfo = await prisma.user.findUniqueOrThrow({
+    
+    await prisma.user.findUniqueOrThrow({
         where: {
             id,
             status: UserStatus.ACTIVE
@@ -138,9 +139,6 @@ const updateProfile = async (id: string, user: JwtPayload, payload: Partial<IUse
     if (payload.status && user.role !== 'ADMIN') {
         throw new ApiError(403, "You are not authorized to do that")
     };
-    if (payload.currentLocation && user.role === 'ADMIN') {
-        throw new ApiError(403, "You are not authorized to do that..")
-    }
     if (payload.status && user.role === 'ADMIN') {
         await prisma.user.update({
             where: {
@@ -152,20 +150,22 @@ const updateProfile = async (id: string, user: JwtPayload, payload: Partial<IUse
         })
     };
 
-    const file = payload.file;
-    if (file) {
-        const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
-        payload.profilePhoto = uploadToCloudinary?.secure_url!;
-    };
+    if (user.role === 'USER') {
+        const file = payload.file;
+        if (file) {
+            const uploadToCloudinary = await fileUploader.uploadToCloudinary(file);
+            payload.profilePhoto = uploadToCloudinary?.secure_url!;
+        };
 
-    const result = await prisma.user.update({
-        where: {
-            id
-        },
-        data: payload
-    });
+        const result = await prisma.user.update({
+            where: {
+                id
+            },
+            data: payload
+        });
 
-    return result;
+        return result;
+    }
 
 };
 
